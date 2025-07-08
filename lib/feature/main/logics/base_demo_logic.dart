@@ -1,4 +1,4 @@
-import 'package:td_flutter_getx_template/core/base/base/base_logic.dart';
+import 'package:flutter_td_getx_template/core/base/base/base_logic.dart';
 import 'package:tdesign_flutter/tdesign_flutter.dart';
 
 import '../../../routes/route_manager.dart';

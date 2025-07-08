@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:td_flutter_getx_template/core/base/base/base_view.dart';
+import 'package:flutter_td_getx_template/core/base/base/base_view.dart';
 import 'package:tdesign_flutter/tdesign_flutter.dart';
 
 import '../../../core/design_system/theme/color.dart';
@@ -34,6 +34,7 @@ class MainView extends BaseView<MainLogic> {
           tabItem('基类', TDIcons.layers, TDIcons.layers_filled, 0),
           tabItem('网络', TDIcons.internet, TDIcons.internet_filled, 1),
           tabItem('工具', TDIcons.tools, TDIcons.tools_filled, 2),
+          tabItem('主题', TDIcons.palette, TDIcons.palette_filled, 3),
         ],
       ),
     );
