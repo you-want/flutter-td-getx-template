@@ -5,6 +5,7 @@ import 'package:tdesign_flutter/tdesign_flutter.dart';
 
 import '../../../core/design_system/theme/color.dart';
 import '../logics/main_logic.dart';
+import '../../../routes/app_pages.dart';
 
 class MainView extends BaseView<MainLogic> {
   const MainView({super.key});
@@ -35,6 +36,7 @@ class MainView extends BaseView<MainLogic> {
           tabItem('网络', TDIcons.internet, TDIcons.internet_filled, 1),
           tabItem('工具', TDIcons.tools, TDIcons.tools_filled, 2),
           tabItem('主题', TDIcons.palette, TDIcons.palette_filled, 3),
+          tabItem('Demo', TDIcons.app, TDIcons.app_filled, 4),
         ],
       ),
     );

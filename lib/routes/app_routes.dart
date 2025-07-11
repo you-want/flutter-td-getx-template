@@ -11,6 +11,7 @@ abstract class Routes {
   static const BASE_REFRESH_DEMO = _Paths.BASE_REFRESH_DEMO;
   static const BASE_TAB_DEMO = _Paths.BASE_TAB_DEMO;
   static const BASE_DIALOG_DEMO = _Paths.BASE_DIALOG_DEMO;
+  static const EXAMPLE_DEMO = _Paths.EXAMPLE_DEMO;
 }
 
 abstract class _Paths {
@@ -24,4 +25,5 @@ abstract class _Paths {
   static const BASE_REFRESH_DEMO = '/base-refresh-demo';
   static const BASE_TAB_DEMO = '/base-tab-demo';
   static const BASE_DIALOG_DEMO = '/base-dialog-demo';
+  static const EXAMPLE_DEMO = '/example-demo';
 }

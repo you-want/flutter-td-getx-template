@@ -10,195 +10,196 @@ class LoginView extends GetView<LoginController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: TDTheme.of(context).grayColor1,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
         systemOverlayStyle: SystemUiOverlayStyle.dark,
       ),
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 32.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const SizedBox(height: 60),
-              // 标题
-              const Text(
-                '手机号',
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500,
-                  color: Colors.black87,
-                ),
-              ),
-              const SizedBox(height: 16),
-              
-              // 手机号输入
-              _buildPhoneInput(),
-              const SizedBox(height: 24),
-              
-              // 图片验证码输入
-              _buildCaptchaInput(),
-              const SizedBox(height: 24),
-              
-              // 短信验证码输入
-              _buildSmsCodeInput(),
-              const SizedBox(height: 48),
-              
-              // 登录按钮
-              _buildLoginButton(),
-            ],
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 24.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const SizedBox(height: 40),
+                _buildLabel('手机号'),
+                const SizedBox(height: 8),
+                _buildPhoneInput(),
+                const SizedBox(height: 24),
+                _buildLabel('图片验证码'),
+                const SizedBox(height: 8),
+                _buildCaptchaInput(context),
+                const SizedBox(height: 24),
+                _buildLabel('短信验证码'),
+                const SizedBox(height: 8),
+                _buildSmsCodeInput(context),
+                const SizedBox(height: 48),
+                _buildLoginButton(),
+              ],
+            ),
           ),
         ),
       ),
     );
   }
 
-  /// 手机号输入框
-Widget _buildPhoneInput() {
-  return TDInput(
-    controller: controller.phoneController,
-    hintText: '请输入手机号',
-    height: 56,
-    borderRadius: BorderRadius.circular(12),
-    style: const TextStyle(fontSize: 20, color: Color(0xFF2A2A2A)),
-    decoration: InputDecoration(
-      border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(12),
-        borderSide: const BorderSide(color: Color(0xFFE7E7E7)),
+  Widget _buildLabel(String text) {
+    return Text(
+      text,
+      style: const TextStyle(
+        fontSize: 16,
+        color: Color(0xFF2A2A2A),
+        fontWeight: FontWeight.w500,
       ),
-      contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 0),
-    ),
-    inputFormatters: [
-      FilteringTextInputFormatter.digitsOnly,
-      LengthLimitingTextInputFormatter(11),
-    ],
-  );
-}
+    );
+  }
 
-  /// 图片验证码输入框
-  Widget _buildCaptchaInput() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const Text(
-          '图片验证码',
-          style: TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.w500,
-            color: Colors.black87,
-          ),
+  Widget _buildPhoneInput() {
+    return Container(
+      height: 56,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(color: const Color(0xFFE7E7E7)),
+      ),
+      alignment: Alignment.center,
+      child: TextField(
+        controller: controller.phoneController,
+        keyboardType: TextInputType.number,
+        inputFormatters: [
+          FilteringTextInputFormatter.digitsOnly,
+          LengthLimitingTextInputFormatter(11),
+        ],
+        style: const TextStyle(fontSize: 20, color: Color(0xFF2A2A2A)),
+        decoration: const InputDecoration(
+          border: InputBorder.none,
+          hintText: '请输入手机号',
+          contentPadding: EdgeInsets.symmetric(horizontal: 16),
         ),
-        const SizedBox(height: 16),
-        Row(
-          children: [
-            Expanded(
-              child: TDInput(
-                controller: controller.captchaController,
+      ),
+    );
+  }
+
+  Widget _buildCaptchaInput(BuildContext context) {
+    return Row(
+      children: [
+        Expanded(
+          child: Container(
+            height: 56,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(12),
+              border: Border.all(color: const Color(0xFFE7E7E7)),
+            ),
+            alignment: Alignment.center,
+            child: TextField(
+              controller: controller.captchaController,
+              keyboardType: TextInputType.text,
+              inputFormatters: [
+                LengthLimitingTextInputFormatter(4),
+              ],
+              style: const TextStyle(fontSize: 20, color: Color(0xFF2A2A2A)),
+              decoration: const InputDecoration(
+                border: InputBorder.none,
                 hintText: '请输入验证码',
-                inputFormatters: [
-                  LengthLimitingTextInputFormatter(4),
-                ],
+                contentPadding: EdgeInsets.symmetric(horizontal: 16),
               ),
             ),
-            const SizedBox(width: 16),
-            // 验证码图片
-            Obx(() => GestureDetector(
+          ),
+        ),
+        const SizedBox(width: 16),
+        Obx(() => GestureDetector(
               onTap: controller.getCaptcha,
-              child: Container(
-                width: 120,
-                height: 48,
-                decoration: BoxDecoration(
-                  color: Colors.grey[200],
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                child: controller.captchaImage.value != null
-                    ? ClipRRect(
-                        borderRadius: BorderRadius.circular(8),
-                        child: Image.memory(
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(8),
+                child: Container(
+                  width: 120,
+                  height: 48,
+                  color: const Color(0xFFF2F3F5),
+                  child: controller.captchaImage.value != null
+                      ? Image.memory(
                           controller.captchaImage.value!,
                           fit: BoxFit.cover,
-                        ),
-                      )
-                    : const Center(
-                        child: Text(
-                          '获取验证码',
-                          style: TextStyle(
-                            fontSize: 14,
-                            color: Colors.grey,
-                          ),
-                        ),
-                      ),
+                        )
+                      : const Center(child: Text('获取验证码', style: TextStyle(color: Colors.grey))),
+                ),
               ),
             )),
-          ],
-        ),
       ],
     );
   }
 
-  /// 短信验证码输入框
-  Widget _buildSmsCodeInput() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+  Widget _buildSmsCodeInput(BuildContext context) {
+    return Row(
       children: [
-        const Text(
-          '短信验证码',
-          style: TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.w500,
-            color: Colors.black87,
-          ),
-        ),
-        const SizedBox(height: 16),
-        Row(
-          children: [
-            Expanded(
-              child: TDInput(
-                controller: controller.smsCodeController,
+        Expanded(
+          child: Container(
+            height: 56,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(12),
+              border: Border.all(color: const Color(0xFFE7E7E7)),
+            ),
+            alignment: Alignment.center,
+            child: TextField(
+              controller: controller.smsCodeController,
+              keyboardType: TextInputType.number,
+              inputFormatters: [
+                FilteringTextInputFormatter.digitsOnly,
+                LengthLimitingTextInputFormatter(6),
+              ],
+              style: const TextStyle(fontSize: 20, color: Color(0xFF2A2A2A)),
+              decoration: const InputDecoration(
+                border: InputBorder.none,
                 hintText: '请输入短信验证码',
-                inputFormatters: [
-                  FilteringTextInputFormatter.digitsOnly,
-                  LengthLimitingTextInputFormatter(6),
-                ],
+                contentPadding: EdgeInsets.symmetric(horizontal: 16),
               ),
             ),
-            const SizedBox(width: 16),
-            // 发送验证码按钮
-            Obx(() {
-              final isCountingDown = controller.countdown.value > 0;
-              final canSend = controller.canSendSms.value && !isCountingDown;
-              return SizedBox(
-                width: 120,
-                height: 48,
-                child: TDButton(
-                  text: isCountingDown
-                      ? '已发送 ${controller.countdown.value}s'
-                      : '发送验证码',
-                  size: TDButtonSize.medium,
-                  type: TDButtonType.fill,
-                  onTap: canSend ? controller.sendSmsCode : null,
-                ),
-              );
-            }),
-          ],
+          ),
         ),
+        const SizedBox(width: 16),
+        Obx(() {
+          final isCountingDown = controller.countdown.value > 0;
+          final canSend = controller.canSendSms.value && !isCountingDown;
+          return SizedBox(
+            width: 120,
+            height: 48,
+            child: TextButton(
+              onPressed: canSend ? controller.sendSmsCode : null,
+              style: TextButton.styleFrom(
+                foregroundColor: canSend ? const Color(0xFF3463F8) : Colors.grey,
+                textStyle: const TextStyle(fontSize: 18),
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+              ),
+              child: isCountingDown
+                  ? Text('已发送 ${controller.countdown.value}s')
+                  : const Text('发送验证码'),
+            ),
+          );
+        }),
       ],
     );
   }
 
-  /// 登录按钮
   Widget _buildLoginButton() {
     return Obx(() => SizedBox(
           width: double.infinity,
-          height: 52,
-          child: TDButton(
-            text: '登录 / 注册',
-            size: TDButtonSize.large,
-            type: TDButtonType.fill,
-            shape: TDButtonShape.round,
-            onTap: controller.canLogin.value ? controller.login : null,
+          height: 56,
+          child: ElevatedButton(
+            onPressed: controller.canLogin.value ? controller.login : null,
+            style: ElevatedButton.styleFrom(
+              backgroundColor: const Color(0xFF4463F8),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16),
+              ),
+              textStyle: const TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            child: const Text('登录 / 注册', style: TextStyle(color: Colors.white)),
           ),
         ));
   }

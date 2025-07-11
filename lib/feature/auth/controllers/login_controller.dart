@@ -2,9 +2,10 @@ import 'dart:async';
 import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:flutter_td_getx_template/core/base/base_logic.dart';
-import 'package:flutter_td_getx_template/feature/auth/data/auth_api.dart';
-import 'package.dart';
+import 'package:flutter_td_getx_template/core/base/base/base_logic.dart';
+import 'package:flutter_td_getx_template/core/network/service/auth/auth_api.dart';
+import 'package:flutter_td_getx_template/core/model/request/send_sms_request.dart';
+import 'package:flutter_td_getx_template/core/model/request/sms_login_request.dart';
 
 class LoginController extends BaseLogic {
   final AuthApi _authApi = Get.find<AuthApi>();
@@ -52,13 +53,12 @@ class LoginController extends BaseLogic {
   /// 获取图片验证码
   Future<void> getCaptcha() async {
     final result = await _authApi.getCaptcha();
-    result.fold(
-      (l) => showToast(l.message),
-      (r) {
-        captchaImage.value = r.imgBytes;
-        captchaId = r.captchaId;
-      },
-    );
+    // 这里需要你根据实际返回结构解析图片和id
+    // 假设 result.data 结构为 { "img": base64, "captchaId": "xxx" }
+    if (result.data != null) {
+      captchaImage.value = result.data!['imgBytes'];
+      captchaId = result.data!['captchaId'];
+    }
   }
 
   /// 发送短信验证码
@@ -72,16 +72,14 @@ class LoginController extends BaseLogic {
     );
 
     final result = await _authApi.sendSmsCode(request);
-    result.fold(
-      (l) {
-        showToast(l.message);
-        getCaptcha(); // 发送失败时，刷新图片验证码
-      },
-      (r) {
-        showToast('短信验证码已发送');
-        _startCountdown();
-      },
-    );
+    if (result.code == 1000) {
+      // 发送成功
+      // showToast('短信验证码已发送');
+      _startCountdown();
+    } else {
+      // showToast(result.message ?? '发送失败');
+      getCaptcha(); // 发送失败时，刷新图片验证码
+    }
   }
 
   void _startCountdown() {
@@ -106,12 +104,11 @@ class LoginController extends BaseLogic {
     );
 
     final result = await _authApi.loginBySms(request);
-    result.fold(
-      (l) => showToast(l.message),
-      (r) {
-        showToast('登录成功');
-        // TODO: 跳转到主页
-      },
-    );
+    if (result.code == 1000) {
+      // showToast('登录成功');
+      // TODO: 跳转到主页
+    } else {
+      // showToast(result.message ?? '登录失败');
+    }
   }
 }

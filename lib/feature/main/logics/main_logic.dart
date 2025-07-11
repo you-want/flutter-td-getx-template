@@ -6,6 +6,7 @@ import '../views/base_demo_view.dart';
 import '../views/network_demo_view.dart';
 import '../views/theme_demo_view.dart';
 import '../views/utils_demo_view.dart';
+import '../views/example_demo_view.dart';
 
 class MainLogic extends BaseLogic {
   final MainState mainState = MainState();
@@ -16,6 +17,7 @@ class MainLogic extends BaseLogic {
     const NetworkDemoView(),
     const UtilsDemoView(),
     const ThemeDemoView(),
+    const ExampleDemoView(),
   ];
 
   @override

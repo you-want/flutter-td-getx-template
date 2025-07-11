@@ -16,6 +16,7 @@ import '../feature/base/views/base_network_demo_view.dart';
 import '../feature/base/views/base_refresh_demo_view.dart';
 import '../feature/base/views/base_tab_demo_view.dart';
 import '../feature/base/views/base_dialog_demo_view.dart';
+import '../feature/main/views/example_demo_view.dart';
 
 part 'app_routes.dart';
 
@@ -62,6 +63,10 @@ class AppPages {
       name: _Paths.BASE_DIALOG_DEMO,
       page: () => const BaseDialogDemoView(),
       binding: BaseDialogDemoBinding(),
+    ),
+    GetPage(
+      name: _Paths.EXAMPLE_DEMO,
+      page: () => const ExampleDemoView(),
     ),
   ];
 }

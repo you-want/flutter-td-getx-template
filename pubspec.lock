@@ -457,7 +457,7 @@ packages:
     source: hosted
     version: "4.1.2"
   image_picker:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
       name: image_picker
       sha256: "021834d9c0c3de46bf0fe40341fa07168407f694d9b2bb18d532dc1261867f7a"
@@ -1065,12 +1065,12 @@ packages:
     dependency: "direct main"
     description:
       name: tdesign_flutter
-      sha256: "03eba56fbc92563d0c31e6aab34474245768554916c27a64908bb0e466cdb24b"
+      sha256: b36b6f939f7a585184665202b6b3acf1922728962312b65182dbbff64c3b62f2
       url: "https://pub.dev"
     source: hosted
-    version: "0.2.2"
+    version: "0.2.3"
   tdesign_flutter_adaptation:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
       name: tdesign_flutter_adaptation
       sha256: "707bbc52ec8b5872ea808500200f402007acf24c03a1cc823a3be2113c1d813a"
