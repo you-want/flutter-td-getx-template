@@ -1,4 +1,4 @@
-package com.joker.flutter_tdkit
+package com.rain.flutter_tdkit
 
 import io.flutter.embedding.android.FlutterActivity
 
