@@ -4,6 +4,7 @@ abstract class Routes {
   Routes._();
 
   static const MAIN = _Paths.MAIN;
+  static const LOGIN = _Paths.LOGIN;
   static const BASE_DEMO = _Paths.BASE_DEMO;
   static const BASE_LIST_DEMO = _Paths.BASE_LIST_DEMO;
   static const BASE_NETWORK_DEMO = _Paths.BASE_NETWORK_DEMO;
@@ -16,6 +17,7 @@ abstract class _Paths {
   _Paths._();
 
   static const MAIN = '/main';
+  static const LOGIN = '/login';
   static const BASE_DEMO = '/base-demo';
   static const BASE_LIST_DEMO = '/base-list-demo';
   static const BASE_NETWORK_DEMO = '/base-network-demo';

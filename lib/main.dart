@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
             defaultTransition: Transition.rightToLeft,
             // debug 模式下是否显示 Banner
             debugShowCheckedModeBanner: false,
-            initialRoute: Routes.MAIN,
+            initialRoute: Routes.LOGIN, // 修改为登录页面
             locale: const Locale('zh', 'CN'),
             theme: ThemeData(
               extensions: [themeData],
