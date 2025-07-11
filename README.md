@@ -1,10 +1,15 @@
-# FlutterTDGetx Template
+# Flutter TDesign Getx Template
 
 > 基于 TDesign + GetX 的 Flutter 项目模板，整合常用功能和开发实践
 
+- [Flutter](https://flutter.dev/)
+- [TDesign](https://tdesign.tencent.com/flutter/overview)
+- [GetX](https://chornthorn.github.io/getx-docs/docs)
+- [DeepWiki](https://deepwiki.com/you-want/flutter-td-getx-template)
+
 ## 🚀 项目简介
 
-FlutterTDGetx Template 是一个个人整理的 Flutter 项目模板，整合了常用的技术栈和开发实践。该模板旨在帮助开发者快速搭建项目结构，减少重复的配置工作。
+FlutterTDGetx Template 是一个 Flutter 项目模板，整合了常用的技术栈和开发实践。该模板旨在帮助开发者快速搭建项目结构，减少重复的配置工作。
 
 ### ✨ 主要特性
 
