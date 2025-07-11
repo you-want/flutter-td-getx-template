@@ -2,6 +2,8 @@ import 'package:get/get.dart';
 
 import '../feature/main/bindings/main_binding.dart';
 import '../feature/main/views/main_view.dart';
+import '../feature/auth/bindings/login_binding.dart';
+import '../feature/auth/views/login_view.dart';
 import '../feature/base/bindings/base_demo_binding.dart';
 import '../feature/base/bindings/base_list_demo_binding.dart';
 import '../feature/base/bindings/base_network_demo_binding.dart';
@@ -14,6 +16,7 @@ import '../feature/base/views/base_network_demo_view.dart';
 import '../feature/base/views/base_refresh_demo_view.dart';
 import '../feature/base/views/base_tab_demo_view.dart';
 import '../feature/base/views/base_dialog_demo_view.dart';
+import '../feature/main/views/example_demo_view.dart';
 
 part 'app_routes.dart';
 
@@ -25,6 +28,11 @@ class AppPages {
       name: _Paths.MAIN,
       page: () => const MainView(),
       binding: MainBinding(),
+    ),
+    GetPage(
+      name: _Paths.LOGIN,
+      page: () => const LoginView(),
+      binding: LoginBinding(),
     ),
     GetPage(
       name: _Paths.BASE_DEMO,
@@ -55,6 +63,10 @@ class AppPages {
       name: _Paths.BASE_DIALOG_DEMO,
       page: () => const BaseDialogDemoView(),
       binding: BaseDialogDemoBinding(),
+    ),
+    GetPage(
+      name: _Paths.EXAMPLE_DEMO,
+      page: () => const ExampleDemoView(),
     ),
   ];
 }

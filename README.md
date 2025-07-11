@@ -71,8 +71,8 @@ lib/
 
 ### 环境要求
 
-- Flutter SDK: >= 3.7.2
-- Dart SDK: >= 3.7.2
+- Flutter SDK: >= 3.32.4
+- Dart SDK: >= 3.8.1
 
 ### 安装依赖
 

@@ -10,10 +10,9 @@ GoodsSearchRequest _$GoodsSearchRequestFromJson(Map<String, dynamic> json) =>
     GoodsSearchRequest(
       page: (json['page'] as num?)?.toInt() ?? 1,
       size: (json['size'] as num?)?.toInt() ?? 10,
-      typeId:
-          (json['typeId'] as List<dynamic>?)
-              ?.map((e) => (e as num).toInt())
-              .toList(),
+      typeId: (json['typeId'] as List<dynamic>?)
+          ?.map((e) => (e as num).toInt())
+          .toList(),
       minPrice: json['minPrice'] as String?,
       maxPrice: json['maxPrice'] as String?,
       keyWord: json['keyWord'] as String?,
