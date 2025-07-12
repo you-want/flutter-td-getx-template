@@ -15,7 +15,12 @@ class ExampleDemoView extends StatelessWidget {
         icon: TDIcons.user,
         route: Routes.LOGIN,
       ),
-      // 后续可继续添加更多 DemoItem
+      DemoItem(
+        title: '我的',
+        description: '我的个人中心',
+        icon: TDIcons.assignment_user,
+        route: Routes.PROFILE,
+      ),
     ];
 
     return Scaffold(
