@@ -17,6 +17,7 @@ import '../feature/base/views/base_refresh_demo_view.dart';
 import '../feature/base/views/base_tab_demo_view.dart';
 import '../feature/base/views/base_dialog_demo_view.dart';
 import '../feature/main/views/example_demo_view.dart';
+import '../feature/main/views/profile_view.dart';
 
 part 'app_routes.dart';
 
@@ -28,11 +29,6 @@ class AppPages {
       name: _Paths.MAIN,
       page: () => const MainView(),
       binding: MainBinding(),
-    ),
-    GetPage(
-      name: _Paths.LOGIN,
-      page: () => const LoginView(),
-      binding: LoginBinding(),
     ),
     GetPage(
       name: _Paths.BASE_DEMO,
@@ -67,6 +63,15 @@ class AppPages {
     GetPage(
       name: _Paths.EXAMPLE_DEMO,
       page: () => const ExampleDemoView(),
+    ),
+    GetPage(
+      name: _Paths.LOGIN,
+      page: () => const LoginView(),
+      binding: LoginBinding(),
+    ),
+    GetPage(
+      name: _Paths.PROFILE,
+      page: () => const ProfileView(),
     ),
   ];
 }
