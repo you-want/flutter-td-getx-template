@@ -13,6 +13,7 @@ abstract class Routes {
   static const EXAMPLE_DEMO = _Paths.EXAMPLE_DEMO;
   static const LOGIN = _Paths.LOGIN;
   static const PROFILE = _Paths.PROFILE;
+  static const UPDATE = _Paths.UPDATE;
 }
 
 abstract class _Paths {
@@ -28,4 +29,5 @@ abstract class _Paths {
   static const EXAMPLE_DEMO = '/example-demo';
   static const LOGIN = '/login';
   static const PROFILE = '/profile';
+  static const UPDATE = '/update';
 }

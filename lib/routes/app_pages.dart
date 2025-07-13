@@ -18,6 +18,8 @@ import '../feature/base/views/base_tab_demo_view.dart';
 import '../feature/base/views/base_dialog_demo_view.dart';
 import '../feature/main/views/example_demo_view.dart';
 import '../feature/main/views/profile_view.dart';
+import '../feature/update/bindings/update_binding.dart';
+import '../feature/update/views/update_view.dart';
 
 part 'app_routes.dart';
 
@@ -72,6 +74,11 @@ class AppPages {
     GetPage(
       name: _Paths.PROFILE,
       page: () => const ProfileView(),
+    ),
+    GetPage(
+      name: _Paths.UPDATE,
+      page: () => const UpdateView(),
+      binding: UpdateBinding(),
     ),
   ];
 }

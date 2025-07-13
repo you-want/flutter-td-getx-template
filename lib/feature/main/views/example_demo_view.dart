@@ -21,6 +21,12 @@ class ExampleDemoView extends StatelessWidget {
         icon: TDIcons.assignment_user,
         route: Routes.PROFILE,
       ),
+      DemoItem(
+        title: '应用更新',
+        description: '应用更新说明',
+        icon: TDIcons.arrow_down_circle,
+        route: Routes.UPDATE,
+      ),
     ];
 
     return Scaffold(

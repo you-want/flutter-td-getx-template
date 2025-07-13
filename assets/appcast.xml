@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+  <channel>
+    <title>App Updates</title>
+    <item>
+      <title>1.2.3</title>
+      <sparkle:releaseNotesLink>https://yourdomain.com/release-notes.html</sparkle:releaseNotesLink>
+      <pubDate>2024-06-01</pubDate>
+      <enclosure url="https://yourdomain.com/app-latest.apk" sparkle:version="2" sparkle:shortVersionString="1.2.3" type="application/octet-stream" />
+    </item>
+  </channel>
+</rss>

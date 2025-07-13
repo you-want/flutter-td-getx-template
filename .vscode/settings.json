@@ -1,11 +1,13 @@
 {
     "cSpell.words": [
         "appbundle",
+        "appcast",
         "fluttertdkit",
         "Getx",
         "MVVM",
         "screenutil",
         "tdesign",
-        "tdkit"
+        "tdkit",
+        "upgrader"
     ]
 }
