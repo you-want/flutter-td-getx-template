@@ -26,7 +26,7 @@ FlutterTDGetx Template 是一个 Flutter 项目模板，整合了常用的技术
 - **状态管理**: GetX 4.x
 - **UI 框架**: TDesign Flutter
 - **网络请求**: Dio + Retrofit
-- **数据序列化**: son_annotation + json_serializable  
+- **数据序列化**: son_annotation + json_serializable
 - **屏幕适配**: Flutter ScreenUtil
 - **本地存储**: SharedPreferences
 - **路由管理**: GetX Navigation
@@ -82,17 +82,18 @@ flutter pub get
 
 ### 代码生成
 
-#### 模型类和API接口生成
+#### 模型类和 API 接口生成
 
 在项目开发中，当修改了以下内容时，需要运行代码生成命令：
 
 1. 修改了模型类（Model）
-    - 添加或修改了 `@JsonSerializable()` 注解的类
-    - 更新了模型类的属性或方法
 
-2. 修改了API接口
-    - 添加或修改了 API 请求方法
-    - 更新了接口参数或返回值类型
+   - 添加或修改了 `@JsonSerializable()` 注解的类
+   - 更新了模型类的属性或方法
+
+2. 修改了 API 接口
+   - 添加或修改了 API 请求方法
+   - 更新了接口参数或返回值类型
 
 #### 代码生成命令
 
@@ -159,7 +160,7 @@ flutter build ios --release --obfuscate --split-debug-info=./debug_info
 提供了常用的页面基类，所有业务页面建议继承这些基类，统一页面结构和状态管理。包括：
 
 - **BaseView/BaseLogic**: 通用页面基类
-- **BaseNetworkView/BaseNetworkLogic**: 网络请求页面基类  
+- **BaseNetworkView/BaseNetworkLogic**: 网络请求页面基类
 - **BaseListView/BaseListLogic**: 列表页面基类
 - **BaseTabView/BaseTabLogic**: 标签页面基类
 - **BaseDialogView**: 弹窗基类
@@ -200,9 +201,11 @@ flutter build ios --release --obfuscate --split-debug-info=./debug_info
 - 使用 flutter_lints 进行基础代码检查
 - 保持代码的可读性和一致性
 
-## 🤝 贡献指南
+## 🤝 感谢
 
-欢迎提交 Issue 和 Pull Request 来完善这个项目模板。
+本项目最初 fork 自优秀的开源模板 [Joker-x-dev/td-flutter-getx-template](https://github.com/Joker-x-dev/td-flutter-getx-template)，在此对原项目作者表示诚挚感谢 🙏。
+
+在此基础上，结合个人使用场景与实际需求进行了优化与扩展。
 
 ---
 
